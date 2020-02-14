@@ -7,7 +7,9 @@ public class Thread1 {
         t.start();
         T t2 = new T('b');
         t2.start();
-        T t3 = new T('c');
+           
+        R r = new R('c');
+        Thread t3 = new Thread(r);
         t3.start();
     }
 

@@ -12,22 +12,23 @@ import java.util.logging.Logger;
  *
  * @author puerari.martin
  */
-public class T extends Thread {
+public class R implements Runnable {
 
     private char c;
 
-    public T(char c) {
-        this.c = c;
+    R(char c) {
+
     }
 
     public void run() {
-        try {
+
             while (true) {
-                System.out.println("Ciao sono Thread" + c);
-                Thread.sleep(2000);
+                System.out.println("Ciao sono Thread, implemento Runnable " + this.c);
+                try {
+                    Thread.sleep(2000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(R.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-        } catch (InterruptedException ex) {
-            Logger.getLogger(T.class.getName()).log(Level.SEVERE, null, ex);
         }
     }
-}
